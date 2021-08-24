@@ -32,14 +32,15 @@ public class JurosCompostoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       try (PrintWriter out = response.getWriter()) {
+        
+       
+        
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
-            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title> Juros Compostos Servlet</title>");            
+            out.println("<title>Juros Composto Servlet</title>");            
             out.println("</head>");
            double n1 = Double.parseDouble(request.getParameter("n1"));
            out.println("<h4><b>Valor Presente:</b>"+n1+"</h4>");
@@ -48,10 +49,17 @@ public class JurosCompostoServlet extends HttpServlet {
            double n3 = Double.parseDouble(request.getParameter("n3"));
            out.println("<h4><b>Periodo:</b>"+n3+" meses</h4>");
            out.println("<hr/>");
-           out.println("<h4><b>Valor Futuro:"+(n1*(1+((n2/100)))));
+           double calcjuros = (1+(n2/100)); 
+           double pow = Math.pow(calcjuros, n3);
+           out.println("<h4><b>Valor Futuro:"+(n1*(pow)));
+           out.println("<h3><a href ='index.html'>Voltar</a></h3>");
            out.println("</body>");
            out.println("</html>");
+           
+           
         }
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

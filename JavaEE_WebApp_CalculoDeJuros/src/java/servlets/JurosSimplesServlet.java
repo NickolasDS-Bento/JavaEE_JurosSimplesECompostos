@@ -50,6 +50,7 @@ public class JurosSimplesServlet extends HttpServlet {
            out.println("<h4><b>Periodo:</b>"+n3+" meses</h4>");
            out.println("<hr/>");
            out.println("<h4><b>Valor Futuro:"+(n1*(1+((n2/100)*n3))));
+           out.println("<h3><a href ='index.html'>Voltar</a></h3>");
            out.println("</body>");
            out.println("</html>");
            
